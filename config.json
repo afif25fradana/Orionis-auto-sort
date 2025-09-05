@@ -1,0 +1,12 @@
+{
+  "file_categories": {
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".webp", ".ico", ".tiff"],
+    "Documents": [".pdf", ".doc", ".docx", ".txt", ".rtf", ".odt", ".xls", ".xlsx", ".ppt", ".pptx"],
+    "Videos": [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm", ".m4v", ".3gp"],
+    "Audio": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a"],
+    "Archives": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz"],
+    "Programs": [".exe", ".msi", ".dmg", ".pkg", ".deb", ".rpm", ".appx"],
+    "Code": [".py", ".js", ".html", ".css", ".java", ".cpp", ".c", ".php", ".rb", ".go"],
+    "Others": []
+  }
+}
