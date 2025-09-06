@@ -18,7 +18,7 @@ Tired of a messy Downloads folder? This script was born from the simple need to 
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/afif25fradana/Orionis-auto-sort.git
     cd auto-sort
     ```
 
