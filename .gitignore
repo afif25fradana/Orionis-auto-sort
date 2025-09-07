@@ -17,3 +17,13 @@ __pycache__/
 build/
 dist/
 *.spec
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
