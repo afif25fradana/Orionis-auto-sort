@@ -63,7 +63,8 @@ def main():
     try:
         # Try to get base path from executable location first (for PyInstaller), otherwise from script location
         if getattr(sys, 'frozen', False):  # Running as compiled executable
-            base_path = Path(sys.executable).parent
+            # In a one-file bundle, resources are in a temporary folder _MEIPASS
+            base_path = Path(sys._MEIPASS)
         else:  # Running as script
             base_path = Path(__file__).parent.parent.parent
 
@@ -87,13 +88,15 @@ def main():
         config_path = Path('config.json')
         icon_path = Path('icon.png')
 
-    # Verify that paths are within safe directories to prevent path traversal
-    try:
-        config_path.resolve().relative_to(Path('.').resolve())
-        icon_path.resolve().relative_to(Path('.').resolve())
-    except ValueError:
-        logging.critical("❌ Security: Config or icon path is outside allowed directory!")
-        return
+    # The following security check is incompatible with one-file executables,
+    # as the current working directory has no relation to the temporary bundle directory.
+    # This should be re-evaluated if a different packaging method is used.
+    # try:
+    #     config_path.resolve().relative_to(Path('.').resolve())
+    #     icon_path.resolve().relative_to(Path('.').resolve())
+    # except ValueError:
+    #     logging.critical("❌ Security: Config or icon path is outside allowed directory!")
+    #     return
 
     # --- Setup Communication Channels ---
     stop_event = threading.Event()

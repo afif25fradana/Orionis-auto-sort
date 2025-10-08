@@ -1,3 +1,5 @@
 watchdog
 pystray
 Pillow
+pytest
+pyfakefs
