@@ -20,6 +20,14 @@ dist/
 
 # Log files
 *.log
+orionis_auto_sort.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
 
 # OS-specific files
 .DS_Store

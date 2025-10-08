@@ -4,7 +4,7 @@ Tired of a messy Downloads folder? This application was born from the simple nee
 
 ## Version
 
-v1.0.0
+v1.1.0
 
 ## Features
 
@@ -13,8 +13,9 @@ v1.0.0
 - **Flexible Configuration**: File categories and extensions can be easily customized by editing the `config.json` file.
 - **Handles Existing Files**: Sorts all existing files in the Downloads folder when the script is first run.
 - **Safe**: Ignores subdirectories and handles duplicate filenames by appending a number.
+- **Security Enhanced**: Improved path validation to prevent path traversal attacks and enhanced file operation safety.
 - **System Tray Integration**: Runs in the background with a system tray icon for easy access to status and controls.
-- **Orion Constellation Icon**: Features a custom Orion constellation icon in the system tray.
+- **Customizable Icon**: The application uses an `icon.png` file for the system tray icon.
 
 ## Requirements
 
@@ -73,7 +74,7 @@ v1.0.0
 
 5. **Run the script:**
    ```bash
-   python orionis_auto_sort.py
+   python -m src.orionis.main
    ```
 
 ## How It Works
@@ -84,8 +85,16 @@ When running, Orionis Auto Sort will:
 2. Sort any existing files in the Downloads folder
 3. Monitor for new files and sort them automatically
 4. Run in the background with a system tray icon for easy access
+5. Enhanced security checks prevent unauthorized file access and path traversal
 
 To exit the application, right-click on the system tray icon and select "Exit".
+
+## Security Improvements
+
+- **Path Traversal Prevention**: All file paths are validated to ensure they remain within the Downloads directory
+- **Input Validation**: Filenames are checked for path traversal sequences to prevent unauthorized file access
+- **Resource Path Validation**: Configuration and icon files are loaded with security checks to prevent access to sensitive files
+- **Enhanced Error Handling**: Improved error handling prevents potential security issues from unhandled exceptions
 
 ## Building the Executable from Source
 
@@ -98,7 +107,7 @@ If you want to build the executable yourself:
 
 2. **Build the executable:**
    ```bash
-   pyinstaller --onefile --windowed --add-data "config.json;." --name "orionis_auto_sort" orionis_auto_sort.py
+   pyinstaller --onefile --windowed --add-data "config.json;." --add-data "icon.png;." --icon="icon.png" --name "orionis_auto_sort" src/orionis/main.py
    ```
 
 3. **Find the executable:**
